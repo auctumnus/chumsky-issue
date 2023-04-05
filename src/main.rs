@@ -34,7 +34,7 @@ fn rule<'src>() -> impl Parser<'src, &'src str, Rule, E<'src>> {
         .then(
             just('>')
                 .ignore_then(text())
-                .repeated()
+                .separated_by(just(' '))
                 //.at_least(1)
                 .collect::<Vec<_>>(),
         )
